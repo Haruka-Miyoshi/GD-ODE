@@ -46,7 +46,7 @@ class Difference(object):
         return df
     
     # 後退差分
-    #def backward(f,)
+    def backward(self, )
 
 x1=0
 x2=1
