@@ -17,6 +17,8 @@ class GradientDescent(object):
         self.__lambda=0.01
         # xの系列
         self.__x=[self.__x0]
+        # 計算誤差
+        self.__delta=1e-4
 
     """最適化"""
     def optimization(self, epoch=1000):
@@ -24,4 +26,8 @@ class GradientDescent(object):
             z=-self.__lambda*self.__ode.forward(self.__func, self.__x[i], self.__dx)
             xi1=self.__x[i] + z
             self.__x.append(xi1)
+            # 収束判定
+            if np.abs(self.__x[i+1] - self.__x[i]) < self.__delta:
+                print("収束しました。")
+                return self.__x
         return self.__x
